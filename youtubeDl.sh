@@ -88,7 +88,7 @@ else
 	 chaine=$id_video$time;
 	 code=$(code $chaine);
 
-      wget -O "${titre:8}.mp3" "www.youtube-mp3.org/get?ab=128&video_id=$id_video&h=$hash_f&r=1387157732549.1599999999" 2>&1 | mawk -W interactive '/% / {n=2; if($0 ~ /=/)n=1; printf "Progression: %d %%\r",$(NF-n)} END{print ""}'
+      wget -O "${titre:8}.mp3" "www.youtube-mp3.org/get?ab=128&video_id=$id_video&h=$hash_f&r=$time.$code" 2>&1 | mawk -W interactive '/% / {n=2; if($0 ~ /=/)n=1; printf "Progression: %d %%\r",$(NF-n)} END{print ""}'
    
       if test -z "$2"; then
          echo "La musique a été placée dans le repertoire courant."
